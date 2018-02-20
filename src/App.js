@@ -4,7 +4,6 @@ import { Header, Footer } from './ui.js'
 import About from './routes/about.js'
 import Home from './routes/home.js'
 import NotFound from './routes/notfound.js'
-import Connection from './routes/connection.js'
 
 
 const HomeComix = () => (
@@ -16,7 +15,6 @@ const HomeComix = () => (
       <section className="container">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/connection" component={Connection} />
           <Route path="/about" component={About} />
           <Route component={NotFound} />
         </Switch>
