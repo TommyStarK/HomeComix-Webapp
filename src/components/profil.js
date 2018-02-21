@@ -1,37 +1,26 @@
-import React from 'react';
+import React from 'react'
 import { GET } from '../utils.js'
 
 class Profil extends React.Component {
     constructor(props, context) {
-      super(props, context)
-
-      this.state = {
-          books: []
-      }
+        super(props, context)
+        this.state = {
+            books: []
+        }
     }
 
     componentWillMount() {
-        GET('http://localhost:3000/api.homecomix/books', '')
+        GET('http://localhost:3000/api.homecomix/books', this.props.token)
             .then(response => {
-                this.setState({
-                    books: response.books
-                })
+                console.log(response)
             })
-            .catch(err => {
-                console.log("ERROR")
-                console.log(err)
-            })
-    }
-  
-    componentDidMount() {
-      console.log("Profil")
+            .catch(err => { console.log(err) })
     }
   
     render() {
       return  (
         <div>
-          Profil
-          {this.state.books}
+          token: {this.props.token}
         </div>
       );
     }

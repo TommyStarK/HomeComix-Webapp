@@ -6,11 +6,12 @@ function GET(url, auth) {
 
     if (auth !== undefined) {
         content['Authorization'] = auth
-    } 
+    }
     
     return fetch(url, {
         method: 'GET',
-        mode: 'CORS',
+        mode: 'cors',
+        cache: 'default',
         headers: new Headers(content)
     }).then(res => res.json())
     .catch(err => err)
@@ -18,15 +19,18 @@ function GET(url, auth) {
 
 function POST(url, data, auth) {
     let content = {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
 
     if (auth !== undefined) {
         content['Authorization'] = auth
-    } 
+    }
 
     return fetch(url, {
         method: 'POST',
+        mode: 'cors',
+        cache: 'default',
         body: JSON.stringify(data), 
         headers: new Headers(content)
       }).then(res => res.json())
