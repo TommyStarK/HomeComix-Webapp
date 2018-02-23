@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 * {
-  box-sizing: inherit;
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
@@ -9,13 +8,18 @@
 
 html,
 body {
-  box-sizing: border-box;
   height: 100%;
   width: 100%;
+  margin: 0 !important;
 }
 
 body {
   background: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
+}
+
+#root {
+  height: 100% !important;
+  width: 100% !important;
 }

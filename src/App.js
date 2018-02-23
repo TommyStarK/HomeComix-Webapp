@@ -28,13 +28,13 @@ class HomeComix extends React.Component {
           
             <Header />
             
-            <section className="container">
+            <div className="container">
               <Switch>
                 <Route exact path="/" component={() => <Home log={this.log}/>}/>
                 <Route path="/about" component={About} />
                 <Route component={NotFound} />
               </Switch>
-            </section>
+            </div>
             
             <Footer />
           

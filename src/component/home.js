@@ -55,15 +55,15 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
         {this.state.authenticated 
             ?
-          <div>
+          <div className="authenticated">
             <UploadBookDialog token={this.state.token}/>
             <Library token={this.state.token}/>
           </div> 
             :
-           <Authentication authenticate={this.authenticate}/>
+          <Authentication authenticate={this.authenticate}/>
         }
       </div>
     );

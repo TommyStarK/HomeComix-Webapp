@@ -68,7 +68,7 @@ export default class UploadBookDialog extends React.Component {
     ];
 
     return (
-      <div>
+      <div className="uploadBook">
         <FloatingActionButton mini={true} onClick={this.handleOpen}>
           <ContentAdd/>
         </FloatingActionButton>

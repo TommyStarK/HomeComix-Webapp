@@ -5,9 +5,9 @@ import '../App.css';
 export default class Header extends React.Component {
     render() {
     return <header className="App-header">
-                <span className="App-title">
+                <p className="App-title">
                     <Link to="/" style={{ color: '#FFF', textDecoration: 'none' }}>HomeComix</Link>
-                </span>
+                </p>
             </header>
     }
 }

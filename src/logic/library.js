@@ -1,6 +1,7 @@
 import React from 'react'
 import { Fetch } from './fetch.js'
 import BookCard from '../interface/bookCard.js'
+import logo from '../static/wolwerine.jpg'
 
 class Library extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class Library extends React.Component {
             .then(response => {
                 const books = []
 
-                if (response.status === 200) {
+                if (response.success) {
                     for (var book of response.books) { books.push(book) }
                     this.setState({ books: books, loading: false })
                 } else if (response.status === 404) {
@@ -82,9 +83,23 @@ class Library extends React.Component {
             'Authorization': this.props.token
           }
       
-        Fetch('PUT', 'http://localhost:3000/api.homecomix/book/' + this.props.data._id, headers, body)
-            .then(response => { console.log(response) })
+        Fetch('PUT', 'http://localhost:3000/api.homecomix/book/' + this.state.books[this.state.id]._id, headers, body)
+            .then(response => {
+                if (response.success) {
+                    Fetch('GET', 'http://localhost:3000/api.homecomix/book/' + this.state.books[this.state.id]._id, headers)
+                    .then(response => {
+                        if (response.success) {
+                            const books = this.state.books.slice()
+                            books[this.state.id] = response.book
+                            this.setState({ books: books })
+                        } 
+                    })
+                    .catch(err => { console.log(err) })
+                }
+             })
             .catch(err => { console.log(err) })
+
+         this.setState({ id: this.state.id })
     }
 
     render(){
@@ -103,14 +118,18 @@ class Library extends React.Component {
         }
 
         return(
-            <div>
-                {this.state.books.length && 
-                    <div>
-                        <BookCard data={this.state.books[this.state.id]} delete={this.delete} edit={this.edit}/>
+            <div className="library">
+                {this.state.books.length 
+                    ?
+                    
+                    <div className="library-singlepage">
+                        <BookCard token={this.props.token} data={this.state.books[this.state.id]} delete={this.delete} edit={this.edit}/>
                         <button className="button-profil profil-button-left" onClick={this.previous}>&#10094;</button>
                         <button className="button-profil profil-button-right"onClick={this.next}>&#10095;</button>
-                    </div>}
-                {!this.state.books.length && <div>NO BOOKS </div>}
+                    </div>
+                    :
+                    <img className="nobook" src={logo} alt="loading"/>
+                }
             </div>
         )
     }

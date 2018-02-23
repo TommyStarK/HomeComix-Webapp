@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { Fetch } from './fetch.js'
 import LoginForm from '../interface/loginForm.js'
 import SigninForm from '../interface/signinForm.js'
+import BatmanLogo from '../interface/batmanLogo.js'
 
 class Authentication extends React.Component {
     constructor(props, context) {
@@ -93,16 +94,21 @@ class Authentication extends React.Component {
         }
 
         return  (
-            <div>
-                <h2>{this.state.title}</h2>
-                <RaisedButton label="Login" style={style} onClick={this.showLoginForm.bind(this)}/>
-                <RaisedButton label="Register" style={style} onClick={this.showSigninForm.bind(this)}/>
-                {this.state.authorize && <LoginForm authorize={this.authorize}/>}
-                {this.state.register && <SigninForm register={this.register} />}
-                {this.state.message !== '' && <p>{this.state.message}</p>}
-                {this.state.back && <RaisedButton label="Back" onClick={this.back.bind(this)}/>}
+            <div className="auth-div">
+                <h4>{this.state.title}</h4>
+                <div className="batmanLogo">
+                    <BatmanLogo />
+                </div>
+                <div className="auth-form">
+                    <button className="auth-btn" style={style} onClick={this.showLoginForm.bind(this)}>Login</button>
+                    <button className="auth-btn" style={style} onClick={this.showSigninForm.bind(this)}>Register</button>
+                    {this.state.authorize && <LoginForm authorize={this.authorize}/>}
+                    {this.state.register && <SigninForm register={this.register} />}
+                    {this.state.message !== '' && <p>{this.state.message}</p>}
+                    {this.state.back && <RaisedButton label="Back" onClick={this.back.bind(this)}/>}
+                </div>
             </div>
-        );
+        )
     }
   }
   
