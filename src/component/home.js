@@ -1,6 +1,7 @@
 import React from 'react'
-import Profil from '../components/profil.js'
-import Authentication from '../components/authentication.js'
+import Authentication from '../logic/authentication.js'
+import Library from '../logic/library.js';
+import UploadBookDialog from '../interface/uploadBookDialog.js'
 
 class Home extends React.Component {
   constructor(props, context) {
@@ -33,7 +34,7 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(Props) {
-    console.log(Props)
+    
   }
 
   componentWillUpdate() {
@@ -55,8 +56,13 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {this.state.authenticated ?
-           <Profil token={this.state.token}/> :
+        {this.state.authenticated 
+            ?
+          <div>
+            <UploadBookDialog token={this.state.token}/>
+            <Library token={this.state.token}/>
+          </div> 
+            :
            <Authentication authenticate={this.authenticate}/>
         }
       </div>

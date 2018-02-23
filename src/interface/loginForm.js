@@ -1,5 +1,5 @@
 import React from 'react';
-import { POST } from '../utils.js'
+import { Fetch } from '../logic/fetch.js'
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -11,12 +11,16 @@ class LoginForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
         const data = new FormData(event.target)
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
         const payload = {
             username: data.get('username'),
             password: data.get('password')
         }
         
-        POST('http://localhost:3000/api.homecomix/authorize', payload)
+        Fetch('POST', 'http://localhost:3000/api.homecomix/authorize', headers, payload)
             .then(response => { this.props.authorize(event, response) })
             .catch(err => { console.log(err) })
 

@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { POST } from '../utils.js'
+import { Fetch } from '../logic/fetch.js'
 
 class SigninForm extends React.Component {
     constructor(props) {
@@ -12,13 +11,17 @@ class SigninForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault()
         const data = new FormData(event.target)
+        const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
         const payload = {
             username: data.get('username'),
             password: data.get('password'),
             email: data.get('email')
         }
         
-        POST('http://localhost:3000/api.homecomix/register', payload)
+        Fetch('POST', 'http://localhost:3000/api.homecomix/register', headers, payload)
             .then(response => { this.props.register(event, response) })
             .catch(err => { console.log(err) })        
     }

@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Header, Footer } from './ui.js'
-import About from './routes/about.js'
-import Home from './routes/home.js'
-import NotFound from './routes/notfound.js'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Header from './interface/header.js'
+import Footer from './interface/footer.js'
+import About from './component/about.js'
+import Home from './component/home.js'
+import NotFound from './component/notfound.js'
 
 
 class HomeComix extends React.Component {
@@ -15,28 +17,29 @@ class HomeComix extends React.Component {
   }
 
   log(event) {
-	  console.log('#### DEBUG ###')
 	//   this.setState({ logged: true })
   }
   
   render() {
     return (
       <Router>
-        <div className="App">
-        
-          <Header />
+        <MuiThemeProvider>
+          <div className="App">
           
-          <section className="container">
-            <Switch>
-              <Route exact path="/" component={() => <Home log={this.log}/>}/>
-              <Route path="/about" component={About} />
-              <Route component={NotFound} />
-            </Switch>
-          </section>
+            <Header />
+            
+            <section className="container">
+              <Switch>
+                <Route exact path="/" component={() => <Home log={this.log}/>}/>
+                <Route path="/about" component={About} />
+                <Route component={NotFound} />
+              </Switch>
+            </section>
+            
+            <Footer />
           
-          <Footer />
-          
-        </div>
+          </div>
+        </MuiThemeProvider>
       </Router>
     )
   }

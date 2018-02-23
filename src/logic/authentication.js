@@ -1,7 +1,8 @@
 import React from 'react'
-import { GET } from '../utils.js'
-import LoginForm from '../elements/loginForm.js'
-import SigninForm from '../elements/signinForm.js'
+import RaisedButton from 'material-ui/RaisedButton'
+import { Fetch } from './fetch.js'
+import LoginForm from '../interface/loginForm.js'
+import SigninForm from '../interface/signinForm.js'
 
 class Authentication extends React.Component {
     constructor(props, context) {
@@ -20,8 +21,8 @@ class Authentication extends React.Component {
         this.authorize = this.authorize.bind(this)
     }
     
-    componentWillMount() {
-        GET('http://localhost:3000/api.homecomix')
+    componentDidMount() {
+        Fetch('GET', 'http://localhost:3000/api.homecomix')
             .then(response => {
                 this.setState({
                     title: response.message
@@ -94,12 +95,12 @@ class Authentication extends React.Component {
         return  (
             <div>
                 <h2>{this.state.title}</h2>
-                <button style={style} onClick={this.showLoginForm.bind(this)}>login</button>
-                <button style={style} onClick={this.showSigninForm.bind(this)}>signin</button>
-                {this.state.back && <button onClick={this.back.bind(this)}>back</button>}
+                <RaisedButton label="Login" style={style} onClick={this.showLoginForm.bind(this)}/>
+                <RaisedButton label="Register" style={style} onClick={this.showSigninForm.bind(this)}/>
                 {this.state.authorize && <LoginForm authorize={this.authorize}/>}
                 {this.state.register && <SigninForm register={this.register} />}
                 {this.state.message !== '' && <p>{this.state.message}</p>}
+                {this.state.back && <RaisedButton label="Back" onClick={this.back.bind(this)}/>}
             </div>
         );
     }

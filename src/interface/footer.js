@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import logo from './static/logo.svg';
-import './App.css';
+import logo from '../static/logo.svg';
+import '../App.css';
 
-class Footer extends React.Component {
+export default class Footer extends React.Component {
     render() {
     return <footer className="App-footer">
                 <div className="App-footer-div">
@@ -17,15 +17,3 @@ class Footer extends React.Component {
             </footer>;
     }
 }
-
-class Header extends React.Component {
-    render() {
-    return <header className="App-header">
-                <span className="App-title">
-                    <Link to="/" style={{ color: '#FFF', textDecoration: 'none' }}>HomeComix</Link>
-                </span>
-            </header>
-    }
-}
-
-export { Footer, Header }
