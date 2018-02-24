@@ -46,7 +46,7 @@ export default class EditBookDialog extends React.Component {
 
     return (
       <div>
-        <FlatButton label="Edit" labelPosition="before" icon={<RemoveRedEye/>} onClick={this.handleOpen}/>
+        <FlatButton style={{ width: '100px'}} label="Edit" labelPosition="before" icon={<RemoveRedEye/>} onClick={this.handleOpen}/>
         <Dialog
           title="Edit a new book"
           actions={actions}

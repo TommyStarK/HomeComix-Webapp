@@ -149,11 +149,11 @@ export default class MiniDeadPool extends React.Component {
                                 this.handleSubmitLogin(e, data)
                             }}>
                         <label>
-                            Username:
+                            Username:&nbsp;
                             <input type="text" name="username" required/>
                         </label>
                         <label>
-                            Password:
+                            &nbsp;Password:&nbsp;
                             <input type="password" name="password" required/>
                         </label>
                         <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
@@ -182,15 +182,15 @@ export default class MiniDeadPool extends React.Component {
                                 this.handleSubmitSignin(e, data)
                             }}>
                         <label>
-                            Username:
+                            Username:&nbsp;
                             <input type="text" name="username" required/>
                         </label>
                         <label>
-                            Password:
+                            &nbsp;Password:&nbsp;
                             <input type="password" name="password" required/>
                         </label>
                         <label>
-                            Email:
+                            &nbsp;Email:&nbsp;
                             <input type="email" name="email" required/>
                         </label>
                         <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>

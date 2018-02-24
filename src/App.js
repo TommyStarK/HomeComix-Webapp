@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Header from './interface/header.js'
 import Footer from './interface/footer.js'

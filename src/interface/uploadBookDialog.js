@@ -1,8 +1,9 @@
 import React from 'react';
-import Dialog from 'material-ui/Dialog';
+import Dialog from 'material-ui/Dialog'
+// import Button from 'material-ui/Button'
 import FlatButton from 'material-ui/FlatButton';
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import FloatingActionButton from 'material-ui/FloatingActionButton'
+// import FloatingActionButton from 'material-ui/FloatingActionButton'
 import { Fetch } from '../logic/fetch.js'
 
 export default class UploadBookDialog extends React.Component {
@@ -58,20 +59,31 @@ export default class UploadBookDialog extends React.Component {
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-      />,
-      // <FlatButton
-      //   label="Submit"
-      //   primary={true}
-      //   keyboardFocused={true}
-      //   onClick={this.handleSubmit}
-      // />,
+      />
     ];
+
+    const style = {
+      backgroundColor: '#666',
+	    color: '#fff',
+	    fontWeight: 'bold',
+  	  padding: '10px',
+	    MozBorderRadius: '5px',
+      WebkitBorderRadius: '5px',
+      width: '150px', 
+      height: '50px',
+      marginTop: '20px', 
+      marginRight: '50px',
+      letterSpacing: '-1px'
+    }
 
     return (
       <div className="uploadBook">
-        <FloatingActionButton mini={true} onClick={this.handleOpen}>
-          <ContentAdd/>
-        </FloatingActionButton>
+        <FlatButton variant="raised" style={style} onClick={this.handleOpen}>
+          <div style={{ display: 'flex', flexDirection: 'row', marginLeft: '20px'}}>
+            <span style={{ fontWeight: 'bold', color: 'white' }}>Add book</span>
+            <ContentAdd style={{marginTop: '5px', color: 'white' }}/>
+          </div>
+        </FlatButton>
         <Dialog
           title="Upload a new book"
           actions={actions}

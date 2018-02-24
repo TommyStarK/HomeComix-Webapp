@@ -1,7 +1,8 @@
 import React from 'react'
 import { Fetch } from './fetch.js'
 import BookCard from '../interface/bookCard.js'
-import logo from '../static/wolwerine.jpg'
+import Loader from '../interface/loader.js'
+import BatmanLogo from '../interface/batmanLogo.js'
 
 class Library extends React.Component {
     constructor(props) {
@@ -22,9 +23,10 @@ class Library extends React.Component {
         const headers = {
             'Accept': 'application/json',
             'Authorization': this.props.token
-        }
+        }        
 
         this.setState({ loading: true })
+        
         Fetch('GET', 'http://localhost:3000/api.homecomix/books', headers)
             .then(response => {
                 const books = []
@@ -103,32 +105,25 @@ class Library extends React.Component {
     }
 
     render(){
-        const { loading, error } = this.state
-
-        if (error) {
-            return(
-                <p>{error.message}</p>
-            )
-        }
+        const { loading } = this.state
 
         if (loading) {
             return(
-                <p>Loading...</p>
+                <Loader />
             )
         }
 
         return(
             <div className="library">
-                {this.state.books.length 
+                {this.state.books.length
                     ?
-                    
                     <div className="library-singlepage">
                         <BookCard token={this.props.token} data={this.state.books[this.state.id]} delete={this.delete} edit={this.edit}/>
                         <button className="button-profil profil-button-left" onClick={this.previous}>&#10094;</button>
                         <button className="button-profil profil-button-right"onClick={this.next}>&#10095;</button>
                     </div>
                     :
-                    <img className="nobook" src={logo} alt="loading"/>
+                    <BatmanLogo/>
                 }
             </div>
         )

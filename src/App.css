@@ -10,8 +10,8 @@
 */
 .App-logo-react {
   animation: App-logo-react-spin infinite 20s linear;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
 }
 
 @keyframes App-logo-react-spin {
@@ -56,12 +56,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .App-footer-span-about {
   text-decoration: underline;
   margin-right: 1em;
-  margin-top: 0.4em;
 }
 
 /* 
@@ -96,6 +96,9 @@
 
 .library-singlepage {
   height: 100%;
+  padding-left: 150px;
+  padding-top: 70px;
+  padding-right: 150px;
 }
 
 /*
@@ -118,22 +121,27 @@
 
 .uploadBook {
   height: 5%;
+  display: block;
+  float: right;
 }
 
 .bookCard {
-  border: solid;
-  border-color: hotpink;
-  /* height: 100%; */
-  border-radius: 143px;
   display:inline-block;
-  padding:200px 300px 250px 300px;
+  width: 300px;
+  height: 400px;
   vertical-align:middle;
   margin-top: 50px;
 }
 
+.edit-remove-book {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #ccc;
+}
+
 .nobook {
-  border:solid;
-  padding:200px 300px 250px 300px;
+  padding:100px 300px 250px 300px;
 }
  
 .profil-button {
@@ -199,10 +207,9 @@ span {
   color: orangeRed;
 }
 .batman {
-  border: solid;
   background:inherit;
-  width: 760px;
-  height: 500px;
+  width: 700px;
+  height: 470px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -821,32 +828,7 @@ span {
   font-style: italic;
   font-weight: 400;
   }
-/* * { 
-box-sizing: border-box;
-}
-body { 
-  font-family: SequentialistBB, cursive; 
-  font-size: 2.5vw; 
-  margin: 0;
-} */
-/* section { 
-min-height: 100vh; 
-display: flex;
-justify-content: center;
-align-content: center;
-}
-section { 
-padding: 3rem; 
-}
-section:nth-of-type(1) {
-  background: white;
-}
-section:nth-of-type(2) {
-  background: #fff;
-}
-section:nth-of-type(3) {
-background: #0388fe;
-} */
+
 blockquote.bubble { 
 background-position: center;
 background-repeat: no-repeat !important;
@@ -882,4 +864,143 @@ blockquote.electric span {
 display: block;
 font-size: 3vw;
 font-weight: bold;
+}
+
+/* 
+* Loader
+*
+*/
+
+.preloader-1 {
+  margin: 100px auto 0;
+  width: 66px;
+  height: 12px;
+}
+
+.divloader {
+  color: black;
+  /* margin: 5px 0; */
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.preloader-1 .line {
+  width: 1px;
+  height: 12px;
+  background: black;
+  margin: 0 1px;
+  display: inline-block;
+  animation: opacity-1 1000ms infinite ease-in-out;
+}
+
+.preloader-1 .line-1 { animation-delay: 800ms; }
+.preloader-1 .line-2 { animation-delay: 600ms; }
+.preloader-1 .line-3 { animation-delay: 400ms; }
+.preloader-1 .line-4 { animation-delay: 200ms; }
+.preloader-1 .line-6 { animation-delay: 200ms; }
+.preloader-1 .line-7 { animation-delay: 400ms; }
+.preloader-1 .line-8 { animation-delay: 600ms; }
+.preloader-1 .line-9 { animation-delay: 800ms; }
+
+@keyframes opacity-1 { 
+  0% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0;
+  }
+  100% { 
+    opacity: 1;
+  }  
+}
+
+@keyframes opacity-2 { 
+  0% { 
+    opacity: 1;
+    height: 15px;
+  }
+  50% { 
+    opacity: 0;
+    height: 12px;
+  }
+  100% { 
+    opacity: 1;
+    height: 15px;
+  }  
+}
+
+/* 
+*
+*
+*
+*/
+@import url(https://fonts.googleapis.com/css?family=Lato:900);
+/* *, *:before, *:after{
+  box-sizing:border-box;
+} */
+
+div.foo{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.letter{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 8em;
+  margin: 0.2em;
+  position: relative;
+  color: black;
+  transform-style: preserve-3d;
+  perspective: 400;
+  z-index: 1;
+}
+.letter:before, .letter:after{
+  position:absolute;
+  content: attr(data-letter);
+  transform-origin: top left;
+  top:0;
+  left:0;
+}
+.letter, .letter:before, .letter:after{
+  transition: all 0.3s ease-in-out;
+}
+.letter:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
+}
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color: #fafafa;
+  transform:
+    rotateX(0deg)
+    rotateY(-40deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(40deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
 }
