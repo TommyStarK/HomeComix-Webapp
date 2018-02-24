@@ -91,7 +91,7 @@
 }
 
 .library {
-  height: 95%;
+  height: 100%;
 }
 
 .library-singlepage {
@@ -141,7 +141,21 @@
 }
 
 .nobook {
-  padding:100px 300px 250px 300px;
+  padding:100px 300px 250px 310px;
+}
+
+.edit-submit-btn {
+  float: right;
+  font: 'Roboto';
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+  width: 80px;
+  margin-top: 10px;
+  margin-right: -15px;
+  height: 30px;
+  background-color: white;
+  color: #26C6DA;
 }
  
 .profil-button {
@@ -196,7 +210,7 @@
 */
 /* Animation only works in a webkit browser*/
 
-h1,
+/* h1,
 h2 {
   font-family: 'Lato', sans-serif;
   text-align: center;
@@ -205,15 +219,14 @@ h2 {
 span {
   text-transform: lowercase;
   color: orangeRed;
-}
+} */
 .batman {
   background:inherit;
-  width: 700px;
-  height: 470px;
-  margin: 0 auto;
+  width: 760px;
+  height: 500px;
   overflow: hidden;
-  position: relative;
-  padding: 0;
+  position: absolute;
+  margin-left: 24%;
 }
 .bat-cave {
   position: relative;

@@ -48,35 +48,45 @@ export default class EditBookDialog extends React.Component {
       <div>
         <FlatButton style={{ width: '100px'}} label="Edit" labelPosition="before" icon={<RemoveRedEye/>} onClick={this.handleOpen}/>
         <Dialog
-          title="Edit a new book"
+          title={"Edit " + this.props.data.title}
           actions={actions}
-          modal={false}
+          // modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
           autoScrollBodyContent={true}
+          style={{ 
+            // left: '50%',
+          padding: '2rem',
+          position: 'fixed',
+          width: '700px',
+          
+          // right: '50%',
+          // top: '50%'
+        }}
+          
         >
           <form onSubmit={this.handleSubmit}>
             <label>
-                Year:
+                Year:&nbsp;
                 <input type="text" name="year"/>
-            </label>
+            </label><br/>
             <label>
-                Description:
+                Description:&nbsp;
                 <input type="text" name="description"/>
-            </label>
+            </label><br/>
             <label>
-                authors:
+                authors:&nbsp;
                 <input type="text" name="authors"/>
-            </label>
+            </label><br/>
             <label>
-                illustrators:
+                illustrators:&nbsp;
                 <input type="text" name="illustrators"/>
-            </label>
+            </label><br/>
             <label>
-                collections:
+                collections:&nbsp;
                 <input type="text" name="collections"/>
-            </label>
-            <input type="submit" value="Submit" />
+            </label><br/>
+            <input className="edit-submit-btn" type="submit" value="Submit" />
           </form>
         </Dialog>
       </div>

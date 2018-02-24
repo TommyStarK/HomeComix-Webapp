@@ -87,6 +87,7 @@ class Library extends React.Component {
       
         Fetch('PUT', 'http://localhost:3000/api.homecomix/book/' + this.state.books[this.state.id]._id, headers, body)
             .then(response => {
+                console.log(response)
                 if (response.success) {
                     Fetch('GET', 'http://localhost:3000/api.homecomix/book/' + this.state.books[this.state.id]._id, headers)
                     .then(response => {
